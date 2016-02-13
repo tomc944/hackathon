@@ -6,19 +6,15 @@ var Sentimental = React.createClass({
 
   },
   sentimentalize: function(hashtag, response){
-    var analysis = response.map(function(tweet){
-      return analyze(tweet);
-    });
-
-    this.frequencize(hashtag, analysis);
-  },
-  getScores: function(hashtag, data){
     var hashtag_sentiments = {};
     hashtag_sentiments[hashtag] = [];
 
-    for (var datum in data){
-      hashtag_sentiments[hashtag].push(datum.score);
-    };
+    response.forEach(function(tweet){
+      var analysis = analyze(tweet);
+      hashtag_sentiments[hashtag].push(analysis.score);
+    });
+
+    return hashtag_sentiments;
   },
   render: function(){
     return (
