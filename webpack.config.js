@@ -1,6 +1,6 @@
 module.exports = {
   context: __dirname,
-  entry: "./entry.jsx",
+  entry: "./frontend/zadalitics.jsx",
   output: {
     path: "./",
     filename: "bundle.js"
@@ -14,6 +14,10 @@ module.exports = {
         query: {
           presets: ['react']
         }
+      }
+      {
+        test: /\.node$/,
+        loader: "node-loader"
       }
     ]
   },
