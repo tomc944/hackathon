@@ -1,11 +1,13 @@
 var React = require('react');
 var ReactDOM = require('react-dom');
-// var ReactRouter = require('react-router');
 
-// var root = document.getElementById('main');
-// var Router = ReactRouter.Router;
-// var Route = ReactRouter.Route;
-// var IndexRoute = ReactRouter.IndexRoute;
+var Sentimental = require('./components/sentimental.js');
+var ReactRouter = require('react-router');
+
+var root = document.getElementById('main');
+var Router = ReactRouter.Router;
+var Route = ReactRouter.Route;
+var IndexRoute = ReactRouter.IndexRoute;
 
 
 var App = React.createClass({

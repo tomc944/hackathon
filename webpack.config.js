@@ -14,7 +14,7 @@ module.exports = {
         query: {
           presets: ['react']
         }
-      }
+      },
       {
         test: /\.node$/,
         loader: "node-loader"
