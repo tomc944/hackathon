@@ -35,18 +35,27 @@ testTwitter = function(url){
 $.ajax({
    type: 'GET',
    url: url,
-   headers: {
-       "access_token":"58720028-HbiKMntFpHKHDcLw1nVamIZ3RM6tdNt2sN0dTuyME",
-       "access_token_secret":"RF7nv8lryVek58tCvaBqkBdq7tH0vGjDxsyuVQmvxut15"
+   beforeSend:function (xhr) {
+     xhr.setRequestHeader('oauth_token', '58720028-HbiKMntFpHKHDcLw1nVamIZ3RM6tdNt2sN0dTuyME');
+     xhr.setRequestHeader('oauth_token_secret', 'RF7nv8lryVek58tCvaBqkBdq7tH0vGjDxsyuVQmvxut15');
+     xhr.setRequestHeader('consumer_key', 'oHTWVwZlgcfVPjQ43Rf4cjiJ7');
+     xhr.setRequestHeader('consumer_secret', 'NMj0pEnjAQfAEiP8gyd3AglY8p7bAMDlgyCvNYbunGKm1ieF0U');
    },
-   dataType: "json"
-
+   dataType: "jsonp",
+   data: {},
+   success: function (msg) {
+    console.log(msg);
+   }
 }).done(function(data) {
    alert(data);
 });
 };
 
 // 'https://api.twitter.com/1.1/search/tweets.json?q=%23BernieSanders&src=tyah'
+// headers: {
+//     "access_token":"58720028-HbiKMntFpHKHDcLw1nVamIZ3RM6tdNt2sN0dTuyME",
+//     "access_token_secret":"RF7nv8lryVek58tCvaBqkBdq7tH0vGjDxsyuVQmvxut15"
+// },
 //---------
 
 var Sentimental = React.createClass({
@@ -56,6 +65,8 @@ var Sentimental = React.createClass({
   }
 });
 
-
+window.testTwitter = testTwitter;
 
 module.exports = Sentimental;
+
+module.exports = testTwitter;

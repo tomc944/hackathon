@@ -1,7 +1,7 @@
 var React = require('react');
 var ReactDOM = require('react-dom');
 
-var Sentimental = require('./components/sentimental.js');
+var Sentimental = require('./components/sentimental.jsx');
 var ReactRouter = require('react-router');
 
 var root = document.getElementById('main');
@@ -11,10 +11,11 @@ var IndexRoute = ReactRouter.IndexRoute;
 
 
 var App = React.createClass({
-  render: function(){
+  render: function() {
     return (
       <div>
         hello world!
+        <div>{this.props.children}</div>
       </div>
     );
   }
